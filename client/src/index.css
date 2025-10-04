@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Mulish", sans-serif;
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.FadeIn {
+  animation: fadein 0.7s ease-out;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* .mulish-<uniquifier> {
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+} */
+
+/* .lora-<uniquifier> {
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+} */
+
+/* .nunito-<uniquifier> {
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+
+
+.inter-<uniquifier> {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+ */
