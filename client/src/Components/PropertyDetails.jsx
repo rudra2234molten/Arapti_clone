@@ -1,21 +1,15 @@
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { trendingFlatData } from './Assets/dataAsset'
-import { FaLocationDot } from "react-icons/fa6";
-import { FaCheck } from "react-icons/fa";
 import { PiBathtubLight } from "react-icons/pi";
 import { TbBus } from "react-icons/tb";
 import { GiPoolTriangle } from "react-icons/gi";
-import { FaPlay } from "react-icons/fa";
 import { assets1 } from './Assets/assets1';
 import StarRating from './StarRating';
-import { FaRegStar } from "react-icons/fa";
-import { IoIosStar } from "react-icons/io";
 import { RiFacebookFill } from "react-icons/ri";
 import { AiOutlinePinterest } from "react-icons/ai";
 import { IoLogoInstagram } from "react-icons/io5";
 import { FaXTwitter } from "react-icons/fa6";
-import RatingCard2 from './RatingCard2';
 import PropertyDetailsHero from './PropertyDetailsHero';
 import PropertyDetailsProfileSide from './PropertyDetailsProfileSide';
 import PropertyDetailsSec1 from './PropertyDetailsSec1';
@@ -38,7 +32,7 @@ export const RatingCard = ({ rating }) => {
         <h6 className='text-gray-700 font-bold'>Property({rating})</h6>
         <StarRating rating={rating} />
       </div>
-      <div className='w-full h-1 bg-gray-100 rounded-md'><div className='bg-green-500 rounded-md h-1' style={{ width: `${(rating / 5) * 100}%` }}></div></div>
+      <div className='w-full h-1  bg-gray-100 rounded-md'><div className='bg-green-500 transition-all duration-500 rounded-md h-1' style={{ width: `${(rating / 5) * 100}%` }}></div></div>
     </div>
   )
 }
@@ -80,7 +74,7 @@ const PropertyDetails = () => {
     }
   }
 
-  const prev = () => {
+  const prev = useCallback(() => {
 
     setFadein('FadeIn')
     setTimeout(() => {
@@ -95,9 +89,9 @@ const PropertyDetails = () => {
       return newArray
     })
 
-  }
+  }, [flatPhotos])
 
-  const next = () => {
+  const next = useCallback(() => {
 
     setFadein('FadeIn')
     setTimeout(() => {
@@ -111,7 +105,7 @@ const PropertyDetails = () => {
       newArray.shift()
       return newArray
     })
-  }
+  }, [flatPhotos])
 
   const { location, squarfeet, bathroom, bedroom, price, rating, name, size, florImg, heading } = flatData
 
@@ -134,7 +128,7 @@ const PropertyDetails = () => {
 
   return (
     <section className='w-full'>
-      <PropertyDetailsHero flatPhotos={flatPhotos} fadein={fadein} prev={prev} next={next} />
+      <PropertyDetailsHero flatPhotos={flatPhotos} fadein={fadein} setFadein={setFadein} prev={prev} next={next} name={name} setFlatPhotos={setFlatPhotos} />
       <section className='flex flex-col-reverse gap-y-5 xl:gap-y-0 xl:flex-row w-full xl:px-20 px-5 my-10 gap-[5%]'>
         <aside className=' flex flex-col gap-y-5 xl:w-[65%] w-full'>
           <PropertyDetailsSec1 />

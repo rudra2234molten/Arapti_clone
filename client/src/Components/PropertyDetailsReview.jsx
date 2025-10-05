@@ -18,7 +18,7 @@ const PropertyDetailsReview = ({rating}) => {
                 Array(5).fill(' ').map((_, index) => index < rating ? <span className='bg-transparent text-white border px-2 py-1 w-full flex justify-center items-center'><IoIosStar /></span> : <span className='bg-gray-100 text-gray-500 border px-2 py-1 w-full flex justify-center items-center'><FaRegStar /></span>)
               }
             </div>
-            <span className={`absolute top-0 inline-block bg-green-500 h-[1.70rem] z-0`} style={{ width: `${(rating / 5) * 100}%` }}></span>
+            <span className={`absolute top-0 transition-all duration-500 inline-block bg-green-500 h-[1.70rem] z-0`} style={{ width: `${(rating / 5) * 100}%` }}></span>
           </div>
         </article>
         <article className='grid md:grid-cols-2 grid-cols-1 md:grid-rows-2 gap-3'>
